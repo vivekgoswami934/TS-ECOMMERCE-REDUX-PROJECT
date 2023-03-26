@@ -9,7 +9,9 @@ const rootReducer = combineReducers({
   AuthReducer,
 });
 
-export const store = legacy_createStore(rootReducer, applyMiddleware(thunk));
+let middleware = [thunk]
+
+export const store = legacy_createStore(rootReducer, applyMiddleware(...middleware));
 
 export type AppDispatch = typeof store.dispatch;
 
